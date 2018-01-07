@@ -30,7 +30,8 @@ class DataFrameImputer(TransformerMixin):
 
         self.fill = pd.Series([X[c].value_counts().index[0]
                                if X[c].dtype == np.dtype('O')
-                                  or pd.core.common.is_categorical_dtype(X[c])
+                                  # Code is not correct: or pd.core.common.is_categorical_dtype(X[c]) 
+                                  or pd.core.categorical.is_categorical_dtype(X[c]) 
                                else X[c].mean() for c in X], index=X.columns)
 
         if self.verbose:
