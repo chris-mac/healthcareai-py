@@ -1,6 +1,6 @@
 from sklearn.pipeline import Pipeline
 
-import healthcareai.common.transformers as hcai_transformers
+import healthcareai.common.dataframe_transformers as hcai_transformers
 import healthcareai.common.filters as hcai_filters
 
 
