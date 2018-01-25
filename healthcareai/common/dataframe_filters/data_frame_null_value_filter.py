@@ -1,6 +1,9 @@
 from sklearn.base import TransformerMixin
 from pandas.core.frame import DataFrame
 
+from healthcareai.common.dataframe_filters import filters_helpers as filtHelp
+
+from healthcareai.common.healthcareai_error import HealthcareAIError
 
 class DataframeNullValueFilter(TransformerMixin):
     """Given a pandas dataframe, remove rows that contain null values in any column except the excluded."""
@@ -13,7 +16,7 @@ class DataframeNullValueFilter(TransformerMixin):
         return self
 
     def transform(self, x, y=None):
-        validate_dataframe_input(x)
+        filtHelp.validate_dataframe_input(x)
 
         subset = [c for c in x.columns if c not in self.excluded_columns]
 

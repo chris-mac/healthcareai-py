@@ -1,6 +1,8 @@
 from sklearn.base import TransformerMixin
 from pandas.core.frame import DataFrame
 
+from healthcareai.common.dataframe_filters import filters_helpers as filtHelp
+
 
 class DataframeColumnRemover(TransformerMixin):
     """Given a pandas dataframe, remove the given column or columns in list form."""
@@ -12,7 +14,7 @@ class DataframeColumnRemover(TransformerMixin):
         return self
 
     def transform(self, X, y=None):
-        validate_dataframe_input(X)
+        filtHelp.validate_dataframe_input(X)
         if self.columns_to_remove is None:
             # if there is no grain column, for example
             return X
