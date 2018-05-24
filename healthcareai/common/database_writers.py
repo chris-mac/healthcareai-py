@@ -11,7 +11,7 @@ try:
 except ImportError:
     sqlite3_is_loaded = False
 
-from healthcareai.common.filters import is_dataframe
+from healthcareai.common.dataframe_filters import filters_helpers as filtHelp
 from healthcareai.common.healthcareai_error import HealthcareAIError
 
 
@@ -35,7 +35,7 @@ def write_to_db_agnostic(engine, table, dataframe, schema=None):
 
     if not is_engine and not is_sqlite_connection:
         raise HealthcareAIError('sqlalchemy engine or sqlite connection required, a {} was given'.format(type(engine)))
-    if not is_dataframe(dataframe):
+    if not filtHelp.is_dataframe(dataframe):
         raise HealthcareAIError('Dataframe required, a {} was given'.format(type(dataframe)))
     if not isinstance(table, str):
         raise HealthcareAIError('Table name required, a {} was given'.format(type(table)))

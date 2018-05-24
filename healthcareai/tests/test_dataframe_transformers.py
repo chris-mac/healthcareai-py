@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import unittest
-import healthcareai.common.transformers as transformers
+import healthcareai.common.dataframe_transformers as transformers
 
 
 class TestDataframeImputer(unittest.TestCase):

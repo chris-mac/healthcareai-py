@@ -1,7 +1,7 @@
 from sklearn.pipeline import Pipeline
 
-import healthcareai.common.transformers as hcai_transformers
-import healthcareai.common.filters as hcai_filters
+import healthcareai.common.dataframe_transformers as hcai_transformers
+import healthcareai.common.dataframe_filters as hcai_filters
 
 
 def full_pipeline(model_type, predicted_column, grain_column, impute=True, verbose=True):
